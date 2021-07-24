@@ -58,6 +58,53 @@ public class AddressController {
         return Result.ok();
     }
 
+    @ApiOperation(value = "用户修改收货地址", notes = "用户修改收货地址", httpMethod = "POST")
+    @PostMapping("/update")
+    public Result update(@RequestBody AddressBO addressBO){
+        if (StringUtils.isBlank(addressBO.getAddressId())) {
+            return Result.errorMsg("修改地址错误:addressId不能为空");
+        }
+
+        Result checkRes = checkAddress(addressBO);
+
+        if (checkRes.getStatus() != 200) {
+            return checkRes;
+        }
+
+        addressService.updateUserAddress(addressBO);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "用户删除地址", notes = "用户删除地址", httpMethod = "POST")
+    @PostMapping("/delete")
+    public Result delete(
+            @RequestParam String userId,
+            @RequestParam String addressId){
+
+        //避免大量空的请求直击数据库，
+        if (StringUtils.isBlank(userId) || StringUtils.isBlank(addressId)) {
+            return Result.errorMsg("");
+        }
+
+        addressService.deleteUserAddress(userId, addressId);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "用户设置默认地址", notes = "用户设置默认地址", httpMethod = "POST")
+    @PostMapping("/setDefault")
+    public Result setDefault(
+            @RequestParam String userId,
+            @RequestParam String addressId){
+        //避免大量空的请求直击数据库，
+        if (StringUtils.isBlank(userId) || StringUtils.isBlank(addressId)) {
+            return Result.errorMsg("");
+        }
+
+        addressService.updateUserAddressToBeDefault(userId, addressId);
+
+        return Result.ok();
+    }
+
     private Result checkAddress(AddressBO addressBO) {
         String receiver = addressBO.getReceiver();
         if (StringUtils.isBlank(receiver)) {

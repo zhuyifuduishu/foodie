@@ -12,7 +12,24 @@ public interface AddressService {
     public List<UserAddress> queryAll(String userId);
 
     /*
-     * 用户地址
+     * 添加用户地址
      * */
     public void addNewUserAddress(AddressBO addressBO);
+
+    /*
+    * 修改用户收货地址
+    * */
+
+    public void updateUserAddress(AddressBO addressBO);
+
+    /*
+    * 根据用户id，删除对应的用户地址信息
+    * */
+    public void deleteUserAddress(String userId,String addressId);
+
+    /*
+     * 修改用户收货地址
+     * */
+
+    public void updateUserAddressToBeDefault(String userId,String addressId);
 }
