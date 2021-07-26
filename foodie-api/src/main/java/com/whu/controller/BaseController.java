@@ -13,5 +13,5 @@ public class BaseController {
 
     //微信支付成功->支付中心->天天吃货
     //                     |->回调通知的Url
-    String payReturnUrl = "http://cp8ath.natappfree.cc/orders/notifyMerchantOrderPaid";
+    String payReturnUrl = "http://cv3knv.natappfree.cc/orders/notifyMerchantOrderPaid";
 }
