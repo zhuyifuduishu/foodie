@@ -11,8 +11,10 @@ E:\IDEAworkspace\foodie\foodie-common\src\main\java\org\n3r\idworker\Sid.java
 E:\IDEAworkspace\foodie\foodie-common\src\main\java\org\n3r\idworker\strategy\DefaultWorkerIdStrategy.java
 E:\IDEAworkspace\foodie\foodie-common\src\main\java\com\whu\utils\Result.java
 E:\IDEAworkspace\foodie\foodie-common\src\main\java\com\whu\utils\DateUtil.java
+E:\IDEAworkspace\foodie\foodie-common\src\main\java\com\whu\enums\PayMethod.java
 E:\IDEAworkspace\foodie\foodie-common\src\main\java\org\n3r\idworker\IdWorker.java
 E:\IDEAworkspace\foodie\foodie-common\src\main\java\com\whu\utils\PagedGridResult.java
+E:\IDEAworkspace\foodie\foodie-common\src\main\java\com\whu\enums\OrderStatusEnum.java
 E:\IDEAworkspace\foodie\foodie-common\src\main\java\org\n3r\idworker\strategy\DefaultRandomCodeStrategy.java
 E:\IDEAworkspace\foodie\foodie-common\src\main\java\org\n3r\idworker\Test.java
 E:\IDEAworkspace\foodie\foodie-common\src\main\java\com\whu\utils\MobileEmailUtils.java

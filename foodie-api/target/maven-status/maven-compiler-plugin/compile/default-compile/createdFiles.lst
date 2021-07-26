@@ -1,9 +1,10 @@
 com\whu\controller\ShopcatController.class
 com\whu\controller\ItemsController.class
-com\whu\Application.class
 com\whu\controller\PassportController.class
-com\whu\aspect\ServiceLongAspect.class
+com\whu\config\WebMvcConfig.class
 com\whu\config\CorsConfig.class
-com\whu\config\Swagger2.class
 com\whu\controller\AddressController.class
 com\whu\controller\IndexController.class
+com\whu\Application.class
+com\whu\aspect\ServiceLongAspect.class
+com\whu\config\Swagger2.class

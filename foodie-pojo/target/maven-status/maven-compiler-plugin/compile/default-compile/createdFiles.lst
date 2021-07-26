@@ -9,6 +9,7 @@ com\whu\pojo\vo\OrderVO.class
 com\whu\pojo\bo\AddressBO.class
 com\whu\pojo\vo\MyOrdersVO.class
 com\whu\pojo\vo\SubCategoryVO.class
+com\whu\pojo\bo\MerchantOrdersBO.class
 com\whu\pojo\vo\OrderStatusCountsVO.class
 com\whu\pojo\Stu.class
 com\whu\pojo\vo\SimpleItemVO.class
