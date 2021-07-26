@@ -12,6 +12,7 @@ import com.whu.pojo.vo.OrderVO;
 import com.whu.service.AddressService;
 import com.whu.service.ItemService;
 import com.whu.service.OrderService;
+import com.whu.utils.DateUtil;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -159,8 +161,45 @@ public class OrderServiceImpl implements OrderService {
     }
 
     //查询订单状态
+    @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public OrderStatus queryOrderStatusInfo(String orderId) {
         return orderStatusMapper.selectByPrimaryKey(orderId);
+    }
+
+    //关闭超时订单
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void closeOrder() {
+        //查询所有未付款订单，否则时间是否超时（1天）
+        OrderStatus queryOrder = new OrderStatus();
+        queryOrder.setOrderStatus(OrderStatusEnum.WAIT_PAY.type);
+
+        List<OrderStatus> list = orderStatusMapper.select(queryOrder);
+
+        for (OrderStatus orderStatus : list) {
+            //获得订单创建时间
+            Date createTime = orderStatus.getCreatedTime();
+
+            //和当前时间进行对比
+            int daysBetween = DateUtil.daysBetween(createTime, new Date());
+            if (daysBetween >= 1) {
+                //超过一天，关闭订单
+                doCloseOrder(orderStatus.getOrderId());
+
+                //orderStatusMapper.updateByPrimaryKey(orderStatus);
+            }
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    void doCloseOrder(String orderId) {
+        OrderStatus close = new OrderStatus();
+        close.setOrderId(orderId);
+        close.setOrderStatus(OrderStatusEnum.CLOSE.type);
+        close.setCloseTime(new Date());
+
+        orderStatusMapper.updateByPrimaryKeySelective(close);
+
     }
 }
