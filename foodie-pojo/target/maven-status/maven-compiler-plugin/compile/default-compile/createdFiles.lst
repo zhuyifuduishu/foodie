@@ -5,6 +5,7 @@ com\whu\pojo\vo\MySubOrderItemVO.class
 com\whu\pojo\Users.class
 com\whu\pojo\vo\ShopCartVO.class
 com\whu\pojo\Category.class
+com\whu\pojo\bo\center\CenterUserBO.class
 com\whu\pojo\vo\OrderVO.class
 com\whu\pojo\bo\AddressBO.class
 com\whu\pojo\vo\MyOrdersVO.class

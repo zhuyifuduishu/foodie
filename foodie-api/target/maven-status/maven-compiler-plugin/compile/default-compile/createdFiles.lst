@@ -4,6 +4,8 @@ com\whu\controller\center\CenterUserController.class
 com\whu\controller\PassportController.class
 com\whu\config\WebMvcConfig.class
 com\whu\config\CorsConfig.class
+com\whu\resource\FileUpload.class
+META-INF\spring-configuration-metadata.json
 com\whu\controller\AddressController.class
 com\whu\controller\IndexController.class
 com\whu\Application.class
