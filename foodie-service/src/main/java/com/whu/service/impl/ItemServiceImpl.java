@@ -204,6 +204,7 @@ public class ItemServiceImpl implements ItemService {
         return grid;
     }
 
+    //查询评论数量
     @Transactional(propagation = Propagation.SUPPORTS)
     Integer getCommentCounts(String itemId, Integer level) {
         ItemsComments condition = new ItemsComments();

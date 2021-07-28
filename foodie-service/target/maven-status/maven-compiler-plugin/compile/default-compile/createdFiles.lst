@@ -3,7 +3,9 @@ com\whu\service\CategoryService.class
 com\whu\service\impl\ItemServiceImpl.class
 com\whu\service\impl\CategoryServiceImpl.class
 com\whu\service\impl\center\CenterUserServiceImpl.class
+com\whu\service\center\MyOrderService.class
 com\whu\service\CarouselService.class
+com\whu\service\impl\center\MyOrderServiceImpl.class
 com\whu\service\ItemService.class
 com\whu\service\impl\AddressServiceImpl.class
 com\whu\service\AddressService.class

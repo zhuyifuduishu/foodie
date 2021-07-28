@@ -1,4 +1,5 @@
 com\whu\controller\ShopcatController.class
+com\whu\controller\center\MyOrdersController.class
 com\whu\controller\ItemsController.class
 com\whu\controller\center\CenterUserController.class
 com\whu\controller\PassportController.class
