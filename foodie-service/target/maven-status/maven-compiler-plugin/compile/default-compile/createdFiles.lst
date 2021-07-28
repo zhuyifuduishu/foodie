@@ -1,4 +1,5 @@
 com\whu\service\center\CenterUserService.class
+com\whu\service\center\MyCommentsService.class
 com\whu\service\CategoryService.class
 com\whu\service\impl\ItemServiceImpl.class
 com\whu\service\impl\CategoryServiceImpl.class
@@ -9,6 +10,8 @@ com\whu\service\impl\center\MyOrderServiceImpl.class
 com\whu\service\ItemService.class
 com\whu\service\impl\AddressServiceImpl.class
 com\whu\service\AddressService.class
+com\whu\service\impl\center\MyCommentsServiceImpl.class
 com\whu\service\UserService.class
 com\whu\service\impl\CarouselServiceImpl.class
+com\whu\service\impl\center\BaseService.class
 com\whu\service\impl\UserServiceImpl.class

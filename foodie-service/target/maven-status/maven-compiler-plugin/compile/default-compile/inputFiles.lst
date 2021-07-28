@@ -8,9 +8,11 @@ E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\ItemService
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\impl\UserServiceImpl.java
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\OrderService.java
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\impl\ItemServiceImpl.java
+E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\impl\center\MyCommentsServiceImpl.java
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\CarouselService.java
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\impl\AddressServiceImpl.java
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\AddressService.java
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\center\CenterUserService.java
+E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\center\MyCommentsService.java
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\center\MyOrderService.java
 E:\IDEAworkspace\foodie\foodie-service\src\main\java\com\whu\service\impl\center\MyOrderServiceImpl.java

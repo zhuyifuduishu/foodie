@@ -1,4 +1,5 @@
 com\whu\pojo\UserAddress.class
+com\whu\pojo\bo\center\OrderItemsCommentBO.class
 com\whu\pojo\bo\UserBO.class
 com\whu\pojo\vo\SearchItemsVO.class
 com\whu\pojo\vo\MySubOrderItemVO.class

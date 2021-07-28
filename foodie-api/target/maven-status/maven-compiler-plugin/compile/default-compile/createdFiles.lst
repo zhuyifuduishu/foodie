@@ -13,3 +13,4 @@ com\whu\Application.class
 com\whu\aspect\ServiceLongAspect.class
 com\whu\controller\center\CenterController.class
 com\whu\config\Swagger2.class
+com\whu\controller\center\MyCommentsController.class

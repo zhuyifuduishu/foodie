@@ -1,15 +1,12 @@
 package com.whu.controller.center;
 
 import com.whu.controller.BaseController;
-import com.whu.pojo.Orders;
-import com.whu.service.center.MyOrderService;
 import com.whu.utils.PagedGridResult;
 import com.whu.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("myorders")
 public class MyOrdersController extends BaseController {
-
-    @Autowired
-    private MyOrderService myOrderService;
 
     @ApiOperation(value = "查询订单列表", notes = "查询订单列表", httpMethod = "POST")
     @PostMapping("/query")
@@ -107,7 +101,7 @@ public class MyOrdersController extends BaseController {
         return Result.ok();
     }
 
-    //用于验证用户和订单是否有关联关系，避免非法调用
+    /*//用于验证用户和订单是否有关联关系，避免非法调用
     private Result checkUserOrder(String userId, String orderId) {
         Orders order = myOrderService.queryMyOrder(userId, orderId);
         if (order == null) {
@@ -115,6 +109,6 @@ public class MyOrdersController extends BaseController {
         }
         return Result.ok();
     }
-
+*/
 
 }

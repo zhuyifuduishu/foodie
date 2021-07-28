@@ -1,9 +1,17 @@
 package com.whu.controller;
 
 
+import com.whu.pojo.Orders;
+import com.whu.service.center.MyOrderService;
+import com.whu.utils.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.io.File;
 
 public class BaseController {
+
+    @Autowired
+    public MyOrderService myOrderService;
 
     public static String FOODIE_SHOPCART = "shopcart";
 
@@ -23,5 +31,14 @@ public class BaseController {
                                                             File.separator+"IDEAworkspace"+
                                                             File.separator+"foodieImages"+
                                                             File.separator+"faces";
+
+    //用于验证用户和订单是否有关联关系，避免非法调用
+    public Result checkUserOrder(String userId, String orderId) {
+        Orders order = myOrderService.queryMyOrder(userId, orderId);
+        if (order == null) {
+            return Result.errorMsg("订单不存在！");
+        }
+        return Result.ok(order);
+    }
 
 }

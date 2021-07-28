@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class MyOrderServiceImpl implements MyOrderService {
+public class MyOrderServiceImpl extends BaseService implements MyOrderService {
 
     @Autowired
     private OrdersMapperCustom ordersMapperCustom;
@@ -120,7 +120,7 @@ public class MyOrderServiceImpl implements MyOrderService {
         return result == 1 ? true : false;
     }
 
-    private PagedGridResult setterPagedGrid(List<?> list, Integer page) {
+    /*private PagedGridResult setterPagedGrid(List<?> list, Integer page) {
         PageInfo<?> pageList = new PageInfo<>(list);
         PagedGridResult grid = new PagedGridResult();
         grid.setPage(page);
@@ -128,5 +128,5 @@ public class MyOrderServiceImpl implements MyOrderService {
         grid.setTotal(pageList.getPages());
         grid.setRecords(pageList.getTotal());
         return grid;
-    }
+    }*/
 }
