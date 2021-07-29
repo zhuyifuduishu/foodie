@@ -1,7 +1,6 @@
 package com.whu.service.impl.center;
 
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.whu.enums.OrderStatusEnum;
 import com.whu.enums.YesOrNo;
 import com.whu.mapper.OrderStatusMapper;
@@ -10,6 +9,7 @@ import com.whu.mapper.OrdersMapperCustom;
 import com.whu.pojo.OrderStatus;
 import com.whu.pojo.Orders;
 import com.whu.pojo.vo.MyOrdersVO;
+import com.whu.pojo.vo.OrderStatusCountsVO;
 import com.whu.service.center.MyOrderService;
 import com.whu.utils.PagedGridResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,6 +118,47 @@ public class MyOrderServiceImpl extends BaseService implements MyOrderService {
         int result = ordersMapper.updateByExampleSelective(updateOrder, example);
 
         return result == 1 ? true : false;
+    }
+
+    //查询用户订单数
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public OrderStatusCountsVO getOrderStatus(String userId) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("userId", userId);
+
+        map.put("orderStatus", OrderStatusEnum.WAIT_PAY.type);
+        int waitPayCounts = ordersMapperCustom.getMyOrderStatusCounts(map);
+
+        map.put("orderStatus", OrderStatusEnum.WAIT_DELIVER.type);
+        int waitDeliverCounts = ordersMapperCustom.getMyOrderStatusCounts(map);
+
+        map.put("orderStatus", OrderStatusEnum.WAIT_RECEIVE.type);
+        int waitReceiveCounts = ordersMapperCustom.getMyOrderStatusCounts(map);
+
+        map.put("orderStatus", OrderStatusEnum.SUCCESS.type);
+        map.put("isComment", YesOrNo.NO.type);
+        int waitCommentCounts = ordersMapperCustom.getMyOrderStatusCounts(map);
+
+        OrderStatusCountsVO countsVO = new OrderStatusCountsVO(waitPayCounts,
+                                                                waitDeliverCounts,
+                                                                waitReceiveCounts,
+                                                                waitCommentCounts);
+
+        return countsVO;
+    }
+
+    //获得分页的订单动向
+    @Override
+    public PagedGridResult getOrderTrend(String userId, Integer page, Integer pageSize) {
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("userId", userId);
+
+        PageHelper.startPage(page, pageSize);
+        List<OrderStatus> list = ordersMapperCustom.getMyOrderTrend(map);
+
+        return setterPagedGrid(list, page);
     }
 
     /*private PagedGridResult setterPagedGrid(List<?> list, Integer page) {

@@ -16,7 +16,7 @@ public interface OrdersMapperCustom {
 
     List<MyOrdersVO> queryMyOrders(@Param("paramsMap") Map<String, Object> map);
 
-    int getMyOrderStatusCounts(@Param("paramsMap") Map<String, Object> map);
+    public int getMyOrderStatusCounts(@Param("paramsMap") Map<String, Object> map);
 
     List<OrderStatus> getMyOrderTrend(@Param("paramsMap") Map<String, Object> map);
 

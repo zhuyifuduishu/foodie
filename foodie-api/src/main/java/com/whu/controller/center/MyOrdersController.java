@@ -1,6 +1,7 @@
 package com.whu.controller.center;
 
 import com.whu.controller.BaseController;
+import com.whu.pojo.vo.OrderStatusCountsVO;
 import com.whu.utils.PagedGridResult;
 import com.whu.utils.Result;
 import io.swagger.annotations.Api;
@@ -14,6 +15,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("myorders")
 public class MyOrdersController extends BaseController {
+
+    @ApiOperation(value = "获得订单状态概况", notes = "获得订单状态概况", httpMethod = "POST")
+    @PostMapping("/statusCounts")
+    public Result statusCounts(
+            @ApiParam(name = "userId", value = "用户id", required = true)
+            @RequestParam String userId) {
+        if (StringUtils.isBlank(userId)) {
+            return Result.errorMsg(null);
+        }
+
+        OrderStatusCountsVO result = myOrderService.getOrderStatus(userId);
+
+        return Result.ok(result);
+    }
 
     @ApiOperation(value = "查询订单列表", notes = "查询订单列表", httpMethod = "POST")
     @PostMapping("/query")
@@ -99,6 +114,32 @@ public class MyOrdersController extends BaseController {
             return Result.errorMsg("订单删除失败！");
         }
         return Result.ok();
+    }
+
+    @ApiOperation(value = "查询订单动向", notes = "查询订单动向", httpMethod = "POST")
+    @PostMapping("/trend")
+    public Result trend(
+            @ApiParam(name = "userId", value = "用户id", required = true)
+            @RequestParam String userId,
+            @ApiParam(name = "page", value = "当前页数", required = false)
+            @RequestParam Integer page,
+            @ApiParam(name = "pageSie", value = "商品id", required = false)
+            @RequestParam Integer pageSize) {
+        if (StringUtils.isBlank(userId)) {
+            return Result.errorMsg(null);
+        }
+
+        if (page == null) {
+            page = 1;
+        }
+
+        if (pageSize == null) {
+            pageSize = COMMON_PAGE_SIZE;
+        }
+
+        PagedGridResult grid = myOrderService.getOrderTrend(userId, page, pageSize);
+
+        return Result.ok(grid);
     }
 
     /*//用于验证用户和订单是否有关联关系，避免非法调用
