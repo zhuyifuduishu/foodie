@@ -16,9 +16,16 @@ public class OrderVO {
 
     private String orderId;
     private MerchantOrdersVO merchantOrdersVO;
-
     /**将要移除的已经结算的商品信息*/
-    private List<ShopCartBO> toBeRemovedShopCatList;
+    private List<ShopCartBO> toBeRemovedShopcartList;
+
+    public List<ShopCartBO> getToBeRemovedShopcartList() {
+        return toBeRemovedShopcartList;
+    }
+
+    public void setToBeRemovedShopcartList(List<ShopCartBO> toBeRemovedShopcartList) {
+        this.toBeRemovedShopcartList = toBeRemovedShopcartList;
+    }
 
     public String getOrderId() {
         return orderId;

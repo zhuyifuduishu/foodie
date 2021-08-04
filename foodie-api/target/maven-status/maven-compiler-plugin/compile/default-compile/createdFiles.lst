@@ -3,14 +3,14 @@ com\whu\controller\center\MyOrdersController.class
 com\whu\controller\ItemsController.class
 com\whu\controller\center\CenterUserController.class
 com\whu\controller\PassportController.class
-com\whu\config\WebMvcConfig.class
 com\whu\config\CorsConfig.class
-com\whu\resource\FileUpload.class
 META-INF\spring-configuration-metadata.json
 com\whu\controller\AddressController.class
 com\whu\controller\IndexController.class
 com\whu\Application.class
+com\whu\config\Swagger2.class
+com\whu\config\WebMvcConfig.class
+com\whu\resource\FileUpload.class
 com\whu\aspect\ServiceLongAspect.class
 com\whu\controller\center\CenterController.class
-com\whu\config\Swagger2.class
 com\whu\controller\center\MyCommentsController.class
