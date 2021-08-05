@@ -6,10 +6,25 @@ spring:
     url: jdbc:mysql://localhost:3306/foodie?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
     password: 123456
   redis:
-    database: 0
-    host: 10.0.0.60
-    port: 6379
     password: 123456
+    cluster:
+      nodes: 10.0.0.71:6379,10.0.0.72:6379,10.0.0.73:6379,10.0.0.74:6379,10.0.0.75:6379,10.0.0.76:6379
+    #Redis 单机单实例
+   #database: 0
+   #host: 10.0.0.60
+   #port: 6379
+   #password: 123456
+
+    #Redis 哨兵模式
+    #database: 0
+    #host: 10.0.0.60
+    ##port: 6379
+    #password: 123456
+    #sentinel:
+    #  master: mymaster
+    #  nodes: 10.0.0.60:26379,10.0.0.61:26379,10.0.0.62:26379
+
+    #Redis 集群模式
 
 mybatis:
   configuration:
